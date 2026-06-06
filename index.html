@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ferrati · Archivo de reportes Instagram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#fafafa;color:#1a1a1a;min-height:100vh;padding:80px 24px 60px}
+.container{max-width:720px;margin:0 auto}
+.brand{font-family:'Barlow Condensed',sans-serif;font-size:72px;letter-spacing:-2px;color:#1a1a1a;line-height:1}
+.brand span{color:#E3000F}
+.tagline{color:#888;font-size:14px;letter-spacing:1px;text-transform:uppercase;margin-top:8px;font-weight:500}
+.intro{margin-top:48px;color:#555;font-size:16px;line-height:1.7;max-width:540px}
+.reports{margin-top:48px;border-top:1px solid #ececec}
+.reports li{list-style:none;padding:20px 0;border-bottom:1px solid #ececec;display:flex;justify-content:space-between;align-items:center;transition:padding-left 0.2s}
+.reports li:hover{padding-left:8px}
+.reports a{color:#1a1a1a;text-decoration:none;font-weight:500;font-size:17px;display:flex;align-items:center;gap:12px;width:100%}
+.reports a:hover{color:#E3000F}
+.week{font-family:'Barlow Condensed',sans-serif;background:#1a1a1a;color:white;padding:4px 10px;border-radius:4px;font-size:14px;letter-spacing:1px}
+.arrow{color:#ccc;font-size:20px}
+.reports a:hover .arrow{color:#E3000F}
+.empty{color:#888;padding:32px 0;text-align:center;font-style:italic}
+.footer{margin-top:80px;padding-top:32px;border-top:1px solid #ececec;color:#888;font-size:12px;text-align:center;letter-spacing:0.5px}
+.footer a{color:#E3000F;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="brand">Ferrati<span>.</span></div>
+  <div class="tagline">Archivo de reportes Instagram</div>
+  <p class="intro">Cada lunes a las 8am, un sistema automatizado consulta las métricas de @ferrati.co, analiza el contenido de la semana con IA y publica el reporte aquí.</p>
+  <ul class="reports" id="reports"><li class="empty">Cargando reportes…</li></ul>
+  <div class="footer">Generado con n8n + Claude · <a href="https://instagram.com/ferrati.co">@ferrati.co</a></div>
+</div>
+<script>
+fetch('https://api.github.com/repos/nicolasgomezro18-crypto/ferrati-reports/contents/reports')
+  .then(r => r.ok ? r.json() : [])
+  .then(files => {
+    const list = (files || []).filter(f => f.name.endsWith('.html')).sort((a,b) => b.name.localeCompare(a.name));
+    const container = document.getElementById('reports');
+    if (!list.length) {
+      container.innerHTML = '<li class="empty">Aún no hay reportes publicados. El primero se genera el próximo lunes a las 8am.</li>';
+      return;
+    }
+    container.innerHTML = list.map(f => {
+      const week = f.name.replace('.html','');
+      return `<li><a href="reports/${f.name}"><span class="week">${week}</span><span style="flex:1">Reporte semanal</span><span class="arrow">→</span></a></li>`;
+    }).join('');
+  })
+  .catch(() => {
+    document.getElementById('reports').innerHTML = '<li class="empty">Aún no hay reportes publicados.</li>';
+  });
+</script>
+</body>
+</html>
