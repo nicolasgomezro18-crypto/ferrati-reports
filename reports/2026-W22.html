@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Semanal Instagram - Ferrati</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ferrati-red: #E3000F;
+            --ferrati-black: #1A1A1A;
+            --ferrati-white: #FFFFFF;
+            --ferrati-light-gray: #FAFAFA;
+            --ferrati-border-gray: #ECECEC;
+            --ferrati-text-gray: #555555;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--ferrati-black);
+            background-color: var(--ferrati-light-gray);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--ferrati-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            color: var(--ferrati-black);
+            margin-bottom: 0.5em;
+        }
+
+        h1 { font-size: 3em; line-height: 1; }
+        h2 { font-size: 2.2em; }
+        h3 { font-size: 1.6em; }
+        h4 { font-size: 1.2em; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--ferrati-black);
+            color: var(--ferrati-white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 40vh;
+        }
+
+        .hero h1 {
+            color: var(--ferrati-red);
+            font-size: clamp(2.5em, 6vw, 4.5em);
+            margin-bottom: 0.2em;
