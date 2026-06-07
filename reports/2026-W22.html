@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte Ferrati - Semana 2026-W22</title>
+  <style>
+    :root {
+      --ferrati-rojo: #E3000F;
+      --ferrati-negro: #1A1A1A;
+      --ferrati-blanco: white;
+      --ferrati-borde: #ECECEC;
+      --ferrati-gris-texto: #555555;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      margin: 0;
+      padding: 20px;
+      background-color: var(--ferrati-blanco);
+      color: var(--ferrati-negro);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: var(--ferrati-blanco);
+      border: 1px solid var(--ferrati-borde);
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+
+    header {
+      background-color: var(--ferrati-rojo);
+      color: var(--ferrati-blanco);
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid var(--ferrati-borde);
+      border-radius: 4px;
+      background-color: var(--ferrati-blanco);
+    }
+
+    section h2 {
+      color: var(--ferrati-negro);
+      font-size: 1.5em;
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--ferrati-borde);
+      padding-bottom: 10px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .kpi-card {
+      border: 1px solid var(--ferrati-borde);
+      border-radius: 4px;
+      padding: 15px;
+      text-align: center;
+      background-color: var(--ferrati-blanco);
+    }
+
+    .kpi-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1em;
+      color: var(--ferrati-gris-texto);
+    }
+
+    .kpi-card p {
+      margin: 0;
+      font-size: 2em;
+      font-weight: bold;
+      color: var(--ferrati-negro);
+    }
+
+    .kpi-card .delta {
+      font-size: 0.9em;
+      margin-top: 5px;
+      color: var(--ferrati-gris-texto);
+    }
+
+    .delta.positive {
+      color: green;
+    }
+
+    .delta.negative {
+      color: var(--ferrati-rojo);
+    }
+
+    .chart-linea img,
+    .chart-barras img,
+    .chart-donut img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .top-post {
+      text-align: center;
+    }
+
+    .top-post .no-data {
+      color: var(--ferrati-gris-texto);
+      font-style: italic;
+      padding: 20px;
+    }
+
+    .analisis p {
+      margin-bottom: 10px;
+      color: var(--ferrati-negro);
+    }
+
+    .analisis ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .analisis ul li {
+      margin-bottom: 5px;
+      color: var(--ferrati-negro);
+    }
+
+    .analisis ul li::before {
+      content: "- ";
+      color: var(--ferrati-rojo);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+      color: var(--ferrati-gris-texto);
+      font-size: 0.9em;
+      border-top: 1px solid var(--ferrati-borde);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      header {
+        font-size: 1.5em;
+        padding: 10px 15px;
+      }
+      section {
+        padding: 15px;
+      }
+      .kpis {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+      }
+      .kpi-card p {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>FERRATI | Semana 2026-W22</header>
+
+    <section class="kpis">
+      <h2>Métricas Clave</h2>
+      <div class="kpi-card">
+        <h3>Alcance</h3>
+        <p>201</p>
+        <div class="delta negative">-74%</div>
+      </div>
+      <div class="kpi-card">
+        <h3>Nuevos Seguidores</h3>
+        <p>5</p>
+        <div class="delta positive">+150%</div>
+      </div>
+      <div class="kpi-card">
+        <h3>Visitas al Perfil</h3>
+        <p>0</p>
+        <div class="delta">0%</div>
+      </div>
+      <div class="kpi-card">
+        <h3>Clics a la Web</h3>
+        <p>0</p>
+        <div class="delta">0%</div>
+      </div>
+    </section>
+
+    <section class="chart-linea">
+      <h2>Alcance Diario</h2>
+      <img src="https://quickchart.io/chart?w=900&h=400&bkg=white&c=%7B%22type%22%3A%22line%22%2C%22data%22%3A%7B%22labels%22%3A%5B%2205-31%22%2C%2206-01%22%2C%2206-02%22%2C%2206-03%22%2C%2206-04%22%2C%2206-05%22%2C%2206-06%22%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Alcance%22%2C%22data%22%3A%5B57%2C17%2C30%2C15%2C9%2C5%2C68%5D%2C%22borderColor%22%3A%22%23E3000F%22%2C%22backgroundColor%22%3A%22rgba(227%2C0%2C15%2C0.15)%22%2C%22tension%22%3A0.3%2C%22fill%22%3Atrue%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22title%22%3A%7B%22display%22%3Atrue%2C%22text%22%3A%22Alcance%20diario%202026-05-31%20a%202026-06-06%22%7D%7D%7D%7D" alt="Gráfico de línea de alcance diario">
+    </section>
+
+    <section class="chart-barras">
+      <h2>Interacción por Publicación</h2>
+      <img src="https://quickchart.io/chart?w=700&h=400&bkg=white&c=%7B%22type%22%3A%22bar%22%2C%22data%22%3A%7B%22labels%22%3A%5B%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Likes%22%2C%22data%22%3A%5B%5D%2C%22backgroundColor%22%3A%22%23E3000F%22%7D%2C%7B%22label%22%3A%22Guardados%22%2C%22data%22%3A%5B%5D%2C%22backgroundColor%22%3A%22%231A1A1A%22%7D%2C%7B%22label%22%3A%22Comentarios%22%2C%22data%22%3A%5B%5D%2C%22backgroundColor%22%3A%22%23888888%22%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22title%22%3A%7B%22display%22%3Atrue%2C%22text%22%3A%22Top%205%20posts%20por%20engagement%22%7D%7D%2C%22scales%22%3A%7B%22x%22%3A%7B%22stacked%22%3Atrue%7D%2C%22y%22%3A%7B%22stacked%22%3Atrue%7D%7D%7D%7D" alt="Gráfico de barras de interacción por publicación">
+    </section>
+
+    <section class="chart-donut">
+      <h2>Composición de la Interacción</h2>
+      <img src="https://quickchart.io/chart?w=500&h=400&bkg=white&c=%7B%22type%22%3A%22doughnut%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22Likes%22%2C%22Comentarios%22%2C%22Guardados%22%5D%2C%22datasets%22%3A%5B%7B%22data%22%3A%5B0%2C0%2C0%5D%2C%22backgroundColor%22%3A%5B%22%23E3000F%22%2C%22%231A1A1A%22%2C%22%23888888%22%5D%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22title%22%3A%7B%22display%22%3Atrue%2C%22text%22%3A%22Composicion%20del%20engagement%22%7D%7D%7D%7D" alt="Gráfico de donut de composición de interacción">
+    </section>
+
+    <section class="top-post">
+      <h2>Publicación Destacada</h2>
+      <div class="no-data">No se registraron publicaciones esta semana.</div>
+    </section>
+
+    <section class="analisis">
+      <h2>Análisis Ejecutivo</h2>
+      <p>La semana concluyó con un alcance moderado de 201 usuarios, mostrando una reducción significativa respecto al periodo anterior. Sin embargo, la marca experimentó un crecimiento positivo en nuevos seguidores, lo cual es un indicador alentador.</p>
+      <p>El punto más fuerte fue el aumento del 150% en nuevos seguidores, lo que sugiere que las estrategias de captación, aunque no masivas, fueron efectivas para atraer a una audiencia interesada. Este crecimiento es clave para la expansión de la comunidad Ferrati.</p>
+      <p>Es crucial mejorar el alcance general, que sufrió una caída del 74%. La ausencia de visitas al perfil y clics a la web indica una falta de tráfico dirigido hacia los canales de conversión. La falta de publicaciones también limitó la interacción.</p>
+      <p>Acciones para la próxima semana:</p>
+      <ul>
+        <li>- Planificar y ejecutar al menos tres publicaciones de contenido de alta calidad.</li>
+        <li>- Implementar llamados a la acción claros para dirigir tráfico al perfil y a la web.</li>
+        <li>- Analizar los formatos y horarios de publicación que generaron mejor respuesta en periodos anteriores.</li>
+      </ul>
+    </section>
+
+    <footer>Generado automaticamente</footer>
+  </div>
+</body>
+</html>
